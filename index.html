@@ -477,8 +477,8 @@ footer{
     <span class="sub">PRESSURE WASHING · LLC</span>
   </div>
   <div class="splash-tagline">No Dirt Left Behind.</div>
-  <button class="letsgo" onclick="enterSite()">LET'S GO &nbsp;→</button>
-  <div class="splash-hours">Open Sat–Sun · 8AM–7PM · Richardson · Plano · Garland</div>
+  
+  <div class="splash-hours">Tap anywhere to enter · Open Sat–Sun · 8AM–7PM</div>
 </div>
 
 <!-- ═══ MAIN SITE ═══ -->
@@ -721,6 +721,10 @@ rpos.forEach((p,i)=>{
   rr.appendChild(r);
 });
 
+// Auto enter after 3 seconds
+setTimeout(enterSite, 3000);
+// Also tap anywhere to enter
+document.getElementById("splash").addEventListener("click", enterSite);
 function enterSite(){
   document.getElementById('splash').classList.add('hide');
   const s=document.getElementById('site');s.classList.add('show');
