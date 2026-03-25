@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -695,14 +695,14 @@ footer{
   <div class="foot-inner">
     <div><div class="foot-brand">WASH <span>&</span> SPRAY</div><div class="foot-tag">No Dirt Left Behind. Serving Richardson, Plano, Garland &amp; surrounding cities.</div></div>
     <div class="foot-col"><h4>Services</h4><ul><li><a href="#services">House Washing</a></li><li><a href="#services">Driveways</a></li><li><a href="#services">Deck &amp; Patio</a></li><li><a href="#services">Commercial</a></li></ul></div>
-    <div class="foot-col"><h4>Contact</h4><ul><li><a href="tel:4694276767">(469) 427-6767</a></li><li><a href="mailto:Washandspray@gmail.com">Washandspray@gmail.com</a></li></ul></div>
+    <div class="foot-col"><h4>Contact</h4><ul><li><a href="tel:4694276767">(469) 427-6767</a></li><li><a href="/cdn-cgi/l/email-protection#9fc8feecf7fef1fbecefedfee6dff8f2fef6f3b1fcf0f2"><span class="__cf_email__" data-cfemail="025563716a636c66717270637b42656f636b6e2c616d6f">[email&#160;protected]</span></a></li></ul></div>
     <div class="foot-col"><h4>Hours</h4><ul><li><a href="#">Saturday: 8AM – 7PM</a></li><li><a href="#">Sunday: 8AM – 7PM</a></li><li><a href="#" style="color:rgba(255,255,255,0.15);">Mon–Fri: Closed</a></li></ul></div>
   </div>
   <div class="foot-bottom"><span>© 2026 Wash &amp; Spray LLC. All rights reserved.</span><span>Richardson · Plano · Garland, TX</span></div>
 </footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Splash drops
 const sd=document.getElementById('splashDrops');
 for(let i=0;i<30;i++){
@@ -769,11 +769,6 @@ async function submitForm(){
   const photoInput=document.getElementById('photos');
   if(photoInput&&photoInput.files.length>0){Array.from(photoInput.files).forEach(function(f,i){fd.append('photo_'+(i+1),f);});}
   try{
-    const res=await fetch('https://formspree.io/f/xwvrdqy1',{method:'POST',body:fd,headers:{Accept:'application/json'}});
+    fd.append('access_key','372ffdf6-7107-4cc1-a4ec-9bc77d7ef4b4');fd.append('subject','New Quote Request - Wash & Spray LLC');const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd,headers:{Accept:'application/json'}});
     if(res.ok){document.getElementById('qs5').classList.remove('active');document.getElementById('success').classList.add('show');document.getElementById('prog').style.width='100%';document.getElementById('quote').scrollIntoView({behavior:'smooth'});}
-    else{btn.disabled=false;btn.textContent='Send Request ✓';msg.style.display='none';alert('Something went wrong. Please call us at (469) 427-6767');}
-  }catch(e){btn.disabled=false;btn.textContent='Send Request ✓';msg.style.display='none';alert('Something went wrong. Please call us at (469) 427-6767');}
-}
-</script>
-</body>
-</html>
+    else{btn.disabled=false;btn.textContent='Send Request ✓';msg.style.display='none';al
