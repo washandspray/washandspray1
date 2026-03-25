@@ -9,104 +9,8 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{--black:#050a0f;--blue:#0a4a6e;--cyan:#00c8ff;--white:#f0f8ff;--border:rgba(0,200,255,0.12);}
 html{scroll-behavior:smooth;}
-body{background:var(--black);font-family:'Barlow',sans-serif;color:white;overflow-x:hidden;cursor:auto;}
-
-/* ── SPLASH ── */
-#splash{
-  position:fixed;inset:0;z-index:1000;
-  background:radial-gradient(ellipse at 50% 60%, #0a2a40 0%, #050a0f 70%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  transition:opacity 1s ease,transform 1s ease;overflow:hidden;
-}
-#splash.hide{opacity:0;transform:scale(1.06);pointer-events:none;}
-
-/* animated water bg on splash */
-.splash-water{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 120% 60% at 50% 100%, rgba(0,100,160,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 40% at 30% 80%, rgba(0,200,255,0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 40% at 70% 90%, rgba(0,200,255,0.06) 0%, transparent 50%);
-}
-/* ripple rings */
-.ripple{
-  position:absolute;border-radius:50%;
-  border:1px solid rgba(0,200,255,0.2);
-  animation:rippleOut 3s ease-out infinite;
-  pointer-events:none;
-}
-@keyframes rippleOut{
-  0%{transform:translate(-50%,-50%) scale(0);opacity:0.6;}
-  100%{transform:translate(-50%,-50%) scale(1);opacity:0;}
-}
-
-/* splash drops */
-.sdrop{
-  position:absolute;pointer-events:none;
-  background:linear-gradient(to top,rgba(0,200,255,0.5),transparent);
-  width:1.5px;border-radius:1px;
-  animation:sdropfall linear infinite;
-}
-@keyframes sdropfall{
-  0%{transform:translateY(110vh);opacity:0;}
-  5%{opacity:1;}
-  95%{opacity:0.6;}
-  100%{transform:translateY(-5px);opacity:0;}
-}
-
-/* spray burst on splash */
-.spray-burst{
-  position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);
-  width:600px;height:300px;pointer-events:none;
-  animation:fadeUp 1.2s 0.3s ease both;
-}
-
-.splash-logo-text{
-  position:relative;z-index:2;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,13vw,8rem);
-  letter-spacing:0.08em;line-height:0.85;text-align:center;
-  text-shadow:0 0 60px rgba(0,200,255,0.3), 0 2px 30px rgba(0,0,0,0.8);
-  animation:logoIn 1s cubic-bezier(0.16,1,0.3,1) both;
-}
-.splash-logo-text .amp{color:rgba(0,200,255,0.5);}
-.splash-logo-text .sub{
-  display:block;font-size:clamp(0.8rem,2.5vw,1.2rem);
-  letter-spacing:0.45em;
-  color:rgba(0,200,255,0.5);
-  margin-top:0.5rem;
-  text-shadow:0 0 20px rgba(0,200,255,0.4);
-}
-.splash-tagline{
-  position:relative;z-index:2;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(0.85rem,2vw,1.1rem);
-  letter-spacing:0.3em;
-  color:rgba(0,200,255,0.35);
-  margin-top:1.5rem;
-  animation:fadeUp 0.8s 0.6s ease both;
-}
-.letsgo{
-  position:relative;z-index:2;
-  margin-top:3rem;background:var(--cyan);color:#050a0f;border:none;
-  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.2em;
-  padding:1rem 3.5rem;cursor:pointer;
-  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));
-  transition:transform 0.2s,box-shadow 0.2s;
-  animation:fadeUp 0.8s 0.9s ease both;
-  box-shadow:0 0 30px rgba(0,200,255,0.4);
-  display:flex;align-items:center;gap:1rem;
-}
-.letsgo:hover{transform:scale(1.05);box-shadow:0 0 50px rgba(0,200,255,0.6);}
-.splash-hours{
-  position:relative;z-index:2;
-  margin-top:1.8rem;font-size:0.7rem;letter-spacing:0.2em;
-  text-transform:uppercase;color:rgba(0,200,255,0.2);
-  animation:fadeUp 0.8s 1.1s ease both;
-}
-
-/* ── SITE ── */
-#site{display:none;}
+body{background:var(--black);font-family:'Barlow',sans-serif;color:white;overflow-x:hidden;}
+#site{display:block !important;}
 #site.show{display:block;}
 
 /* ── NAV ── */
@@ -291,7 +195,6 @@ section{padding:6rem 5vw;}
 }
 .svc:hover::before{transform:scaleX(1);}
 .svc:hover{background:#0a1e2e;}
-/* water splash number bg */
 .svc-n{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(0,200,255,0.04);position:absolute;top:0.5rem;right:1rem;line-height:1;}
 .svc-e{font-size:2rem;display:block;margin-bottom:1rem;}
 .svc h3{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.05em;margin-bottom:0.6rem;color:white;}
@@ -441,48 +344,7 @@ footer{
 @keyframes logoIn{from{opacity:0;transform:scale(0.88) translateY(24px);}to{opacity:1;transform:scale(1) translateY(0);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 </style>
-</head>
-<body>
 
-<!-- ═══ SPLASH ═══ -->
-<div id="splash">
-  <div class="splash-water"></div>
-  <div id="splashDrops"></div>
-  <div id="ripples"></div>
-
-  <!-- Big spray SVG behind logo -->
-  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0.04;pointer-events:none;" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
-    <g transform="translate(600,400)">
-      <line x1="0" y1="0" x2="-580" y2="-280" stroke="rgba(0,200,255,1)" stroke-width="3" opacity="0.6"/>
-      <line x1="0" y1="0" x2="-550" y2="-240" stroke="rgba(0,200,255,1)" stroke-width="2"/>
-      <line x1="0" y1="0" x2="-520" y2="-200" stroke="rgba(0,200,255,1)" stroke-width="2"/>
-      <line x1="0" y1="0" x2="-540" y2="-310" stroke="rgba(0,200,255,1)" stroke-width="1.5"/>
-      <line x1="0" y1="0" x2="-560" y2="-260" stroke="rgba(0,200,255,1)" stroke-width="1.5"/>
-      <line x1="0" y1="0" x2="-500" y2="-180" stroke="rgba(0,200,255,1)" stroke-width="1"/>
-      <line x1="0" y1="0" x2="-510" y2="-220" stroke="rgba(0,200,255,1)" stroke-width="1"/>
-      <circle cx="0" cy="0" r="8" fill="rgba(0,200,255,0.5)"/>
-      <circle cx="0" cy="0" r="4" fill="rgba(0,200,255,0.9)"/>
-    </g>
-    <!-- water drops -->
-    <circle cx="200" cy="500" r="6" fill="rgba(0,200,255,0.3)"/>
-    <circle cx="350" cy="560" r="4" fill="rgba(0,200,255,0.2)"/>
-    <circle cx="150" cy="580" r="8" fill="rgba(0,200,255,0.15)"/>
-    <circle cx="900" cy="200" r="5" fill="rgba(0,200,255,0.2)"/>
-    <circle cx="1000" cy="350" r="7" fill="rgba(0,200,255,0.15)"/>
-    <circle cx="850" cy="450" r="4" fill="rgba(0,200,255,0.2)"/>
-  </svg>
-
-  <div class="splash-logo-text">
-    WASH <span class="amp">&</span> SPRAY
-    <span class="sub">PRESSURE WASHING · LLC</span>
-  </div>
-  <div class="splash-tagline">No Dirt Left Behind.</div>
-  
-  <div class="splash-hours">Tap anywhere to enter · Open Sat–Sun · 8AM–7PM</div>
-</div>
-
-<!-- ═══ MAIN SITE ═══ -->
-<div id="site">
 
 <nav>
   <div class="nav-brand">WASH <span>&</span> SPRAY</div>
@@ -704,7 +566,6 @@ footer{
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Splash drops
-const sd=document.getElementById('splashDrops');
 for(let i=0;i<30;i++){
   const d=document.createElement('div');d.className='sdrop';
   const h=Math.random()*120+40;
@@ -722,13 +583,8 @@ rpos.forEach((p,i)=>{
 });
 
 // Auto enter after 3 seconds
-setTimeout(enterSite, 3000);
 // Also tap anywhere to enter
-document.getElementById("splash").addEventListener("click", enterSite);
-function enterSite(){
-  document.getElementById('splash').classList.add('hide');
   const s=document.getElementById('site');s.classList.add('show');
-  setTimeout(()=>document.getElementById('splash').style.display='none',1050);
 }
 
 const S={services:[],stain:'',sqft:'',ptype:'',addr:'',fn:'',ln:'',ph:'',em:'',btime:'',notes:'',inspect:false,photos:0};
@@ -775,4 +631,3 @@ async function submitForm(){
   try{
     fd.append('access_key','372ffdf6-7107-4cc1-a4ec-9bc77d7ef4b4');fd.append('subject','New Quote Request - Wash & Spray LLC');const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd,headers:{Accept:'application/json'}});
     if(res.ok){document.getElementById('qs5').classList.remove('active');document.getElementById('success').classList.add('show');document.getElementById('prog').style.width='100%';document.getElementById('quote').scrollIntoView({behavior:'smooth'});}
-    else{btn.disabled=false;btn.textContent='Send Request ✓';msg.style.display='none';al
